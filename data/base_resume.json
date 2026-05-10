@@ -1,0 +1,22 @@
+{
+  "contact": {
+    "name": "",
+    "email": "",
+    "phone": "",
+    "location": "",
+    "linkedin": null,
+    "github": null,
+    "website": null
+  },
+  "summary": "",
+  "experience": [],
+  "projects": [],
+  "skills": {
+    "technical": [],
+    "tools": [],
+    "languages": [],
+    "soft_skills": []
+  },
+  "education": [],
+  "certifications": []
+}

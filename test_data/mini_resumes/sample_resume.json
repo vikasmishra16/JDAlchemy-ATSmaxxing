@@ -1,0 +1,46 @@
+{
+  "contact": {
+    "name": "Sample Candidate",
+    "email": "candidate@example.com",
+    "phone": "555-0100",
+    "location": "Bengaluru, India",
+    "linkedin": null,
+    "github": null,
+    "website": null
+  },
+  "summary": "Software engineer with experience building APIs, data pipelines, and machine learning prototypes.",
+  "experience": [
+    {
+      "company": "Example Systems",
+      "role": "Software Engineer",
+      "location": "Remote",
+      "start_date": "2022",
+      "end_date": "Present",
+      "bullets": [
+        "Worked on backend APIs using Python and PostgreSQL.",
+        "Created scripts to automate data validation tasks.",
+        "Helped with model evaluation for prediction experiments."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Crop Yield Predictor",
+      "description": "Machine learning project for crop yield prediction.",
+      "technologies": ["Python", "XGBoost", "LightGBM", "Pandas"],
+      "bullets": [
+        "Worked on ML model training and testing.",
+        "Used cross validation to compare model performance."
+      ],
+      "link": null
+    }
+  ],
+  "skills": {
+    "technical": ["Python", "SQL", "REST APIs", "Machine Learning", "PostgreSQL"],
+    "tools": ["Git", "Docker", "Pandas", "Scikit-learn", "XGBoost", "LightGBM"],
+    "languages": ["English"],
+    "soft_skills": ["Communication", "Problem Solving"]
+  },
+  "education": ["B.Tech in Computer Science"],
+  "certifications": []
+}

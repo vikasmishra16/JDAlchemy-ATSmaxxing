@@ -1,0 +1,25 @@
+AI Engineer
+
+We are hiring an AI Engineer to build applied AI workflows that connect language models, data pipelines, and production software systems. The ideal candidate can prototype quickly while maintaining engineering discipline around evaluation, reliability, and user-facing quality.
+
+Responsibilities:
+- Build LLM-powered workflows and integrate them with backend services.
+- Design prompts, evaluation datasets, and quality checks for generated outputs.
+- Implement retrieval or structured data pipelines where appropriate.
+- Monitor model behavior and improve reliability through testing.
+- Work with product and engineering teams to ship practical AI features.
+
+Required skills:
+- Python
+- API development
+- Prompt engineering
+- LLM evaluation
+- JSON or structured output handling
+- Git
+
+Preferred skills:
+- Ollama or local model workflows
+- LangChain, LlamaIndex, or similar tools
+- Vector databases or search
+- Docker
+- Automated testing

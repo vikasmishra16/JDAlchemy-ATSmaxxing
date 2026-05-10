@@ -1,0 +1,11 @@
+TODO: Generate a concise cover letter using the resume JSON and job description JSON.
+
+Return only cover letter text under 300 words.
+Use only facts present in the resume and JD.
+Avoid unsupported claims and generic filler.
+
+Resume JSON:
+{resume_json}
+
+Job description JSON:
+{jd_json}

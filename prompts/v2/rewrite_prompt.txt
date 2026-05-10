@@ -1,0 +1,31 @@
+TODO: Tailor this resume JSON for the provided job description JSON.
+
+Return only valid JSON matching the Resume schema.
+No markdown, no comments, no explanations.
+
+Resume mode:
+{mode}
+
+Locked sections that must not be modified:
+{locked_sections}
+
+Rewrite rules:
+- Preserve truth above alignment.
+- Do not add unsupported tools, metrics, experience, publications, employers, degrees, projects, or certifications.
+- Improve specificity using only evidence already present in the resume.
+- Keep bullets concise, ATS-friendly, and no longer than one sentence.
+- Vary action verbs and openings. Avoid starting adjacent bullets with the same verb.
+- Avoid filler: passionate, hardworking, dynamic, results-driven, synergy, leverage, responsible for.
+- Prefer specific verbs: Engineered, Built, Automated, Designed, Implemented, Optimized, Deployed, Analyzed, Improved, Streamlined.
+
+Weak bullet example:
+"Worked on ML model."
+
+Strong bullet example:
+"Optimized crop yield prediction models using XGBoost and LightGBM, improving model selection through cross-validation and feature importance analysis."
+
+Resume JSON:
+{resume_json}
+
+Job description JSON:
+{jd_json}

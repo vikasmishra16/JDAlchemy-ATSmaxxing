@@ -1,0 +1,7 @@
+TODO: Analyze this job description and return structured JSON.
+
+Return only valid JSON with title, company, required_skills, preferred_skills, responsibilities, and keywords.
+Use exact JD wording for skills and keywords when possible. Do not infer missing requirements.
+
+Job description:
+{jd_text}

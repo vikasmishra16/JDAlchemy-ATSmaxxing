@@ -1,0 +1,82 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.55in]{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1pt}
+\pagenumbering{gobble}
+\titleformat{\section}{\large\bfseries}{}{0pt}{}[\titlerule]
+\titlespacing*{\section}{0pt}{5pt}{3pt}
+\setlist[itemize]{leftmargin=*, topsep=1pt, itemsep=1pt, parsep=0pt}
+
+\begin{document}
+
+\begin{center}
+{\Large \textbf{<< resume.contact.name|latex_escape >>}}\\
+<< resume.contact.email|latex_escape >> \quad
+<< resume.contact.phone|latex_escape >> \quad
+<< resume.contact.location|latex_escape >>\\
+<% if resume.contact.linkedin %><< resume.contact.linkedin|latex_escape >><% endif %>
+<% if resume.contact.github %> \quad << resume.contact.github|latex_escape >><% endif %>
+<% if resume.contact.website %> \quad << resume.contact.website|latex_escape >><% endif %>
+\end{center}
+
+<% if resume.summary %>
+\section*{Summary}
+<< resume.summary|latex_escape >>
+<% endif %>
+
+<% if resume.skills %>
+\section*{Skills}
+<% if resume.skills.technical %>\textbf{Technical:} << resume.skills.technical|join(", ")|latex_escape >>\\<% endif %>
+<% if resume.skills.tools %>\textbf{Tools:} << resume.skills.tools|join(", ")|latex_escape >>\\<% endif %>
+<% if resume.skills.languages %>\textbf{Languages:} << resume.skills.languages|join(", ")|latex_escape >>\\<% endif %>
+<% if resume.skills.soft_skills %>\textbf{Soft Skills:} << resume.skills.soft_skills|join(", ")|latex_escape >><% endif %>
+<% endif %>
+
+<% if resume.experience %>
+\section*{Experience}
+<% for item in resume.experience %>
+\textbf{<< item.role|latex_escape >>} \hfill \textit{<< item.start_date|latex_escape >> -- << item.end_date|latex_escape >>}\\
+\textit{<< item.company|latex_escape >><% if item.location %>, << item.location|latex_escape >><% endif %>}
+\begin{itemize}
+<% for bullet in item.bullets %>
+\item << bullet|latex_escape >>
+<% endfor %>
+\end{itemize}
+<% endfor %>
+<% endif %>
+
+<% if resume.projects %>
+\section*{Projects}
+<% for project in resume.projects %>
+\textbf{<< project.name|latex_escape >>}<% if project.technologies %> \hfill \textit{<< project.technologies|join(", ")|latex_escape >>}<% endif %>\\
+<< project.description|latex_escape >>
+\begin{itemize}
+<% for bullet in project.bullets %>
+\item << bullet|latex_escape >>
+<% endfor %>
+\end{itemize}
+<% endfor %>
+<% endif %>
+
+<% if resume.education %>
+\section*{Education}
+\begin{itemize}
+<% for item in resume.education %>
+\item << item|latex_escape >>
+<% endfor %>
+\end{itemize}
+<% endif %>
+
+<% if resume.certifications %>
+\section*{Certifications}
+\begin{itemize}
+<% for item in resume.certifications %>
+\item << item|latex_escape >>
+<% endfor %>
+\end{itemize}
+<% endif %>
+
+\end{document}

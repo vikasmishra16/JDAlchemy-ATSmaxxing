@@ -1,0 +1,194 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+media
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+#   According to pypa.io, Pipfile is a locked version.
+Pipfile
+Pipfile.lock
+
+# Poetry
+#   Similar to Pipfile.lock, poetry.lock is ignored because it is mainly for
+#   applications and not libraries, and also to avoid committing the
+#   package's own dependencies which is undesirable.
+poetry.lock
+
+# pdm
+#   Similar to Pipfile.lock, pdm.lock is mainly for applications and not
+#   libraries.
+pdm.lock
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/
+#   paulolocoff/pypackages
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celeryd.pid
+celeryd.schedule
+celeryd.taskfile
+celeryworker.q
+
+# Spark
+spark-warehouse/
+
+# IPython Notebook
+.ipynb_checkpoints
+
+# Nuitka
+Nuitka
+Nuitka-build/
+Nuitka-dist/
+Nuitka-.insta
+nuitka.data
+
+# Virtual environment
+venv/
+ENV/
+env/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Application specific
+# Cache directories
+cache/
+output/
+debug/
+
+# Generated files
+*.pdf
+*.aux
+*.log
+*.toc
+*.out
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex
+*.nav
+*.snm
+*.vrb
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Logs
+logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# Data files that should not be committed
+test_data/resumes/*.pdf
+test_data/resumes/*.docx
+test_data/jds/*.txt
+
+# Evaluation outputs that are generated
+test_data/outputs/
+
+# Local settings
+config.local.py
+
+# Misc
+*.bak
+*.swp
+*~
