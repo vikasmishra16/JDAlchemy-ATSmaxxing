@@ -1,31 +1,45 @@
-TODO: Tailor this resume JSON for the provided job description JSON.
+Rewrite only the bullet group below for JD alignment.
 
-Return only valid JSON matching the Resume schema.
-No markdown, no comments, no explanations.
+Return only a JSON array of strings.
+Return exactly {bullet_count} strings.
+Do not return an object.
+Do not return markdown.
+Do not add bullets.
+Do not remove bullets.
 
 Resume mode:
 {mode}
 
-Locked sections that must not be modified:
-{locked_sections}
+Context:
+{context}
 
-Rewrite rules:
-- Preserve truth above alignment.
-- Do not add unsupported tools, metrics, experience, publications, employers, degrees, projects, or certifications.
-- Improve specificity using only evidence already present in the resume.
-- Keep bullets concise, ATS-friendly, and no longer than one sentence.
-- Vary action verbs and openings. Avoid starting adjacent bullets with the same verb.
-- Avoid filler: passionate, hardworking, dynamic, results-driven, synergy, leverage, responsible for.
-- Prefer specific verbs: Engineered, Built, Automated, Designed, Implemented, Optimized, Deployed, Analyzed, Improved, Streamlined.
+Grounding rules:
+- Preserve original meaning.
+- Preserve existing technologies and factual claims.
+- Never invent projects, technologies, metrics, responsibilities, experience, publications, companies, roles, dates, or certifications.
+- Every rewritten bullet must be directly traceable to the original bullet at the same index.
+- Only rephrase, condense, clarify, or emphasize evidence already present in the original bullet.
+- Improve JD alignment only when the original bullet already supports it.
+- If a JD skill is not supported by the original bullet, do not add it.
+- Keep each bullet one sentence and recruiter-believable.
+- Avoid AI-sounding filler.
 
-Weak bullet example:
-"Worked on ML model."
+Style rules:
+- Prefer clear implementation verbs: Built, Developed, Automated, Analyzed, Tested, Compared, Improved.
+- Keep wording direct, technical, and human.
+- Remove weak openings like "Worked on", "Helped with", and "Used" when a clearer verb fits.
+- Do not add exaggerated impact, business outcomes, or seniority.
+- Do not use corporate jargon such as leveraged, cutting-edge, innovative, impactful, synergy, or solutions.
+- Do not over-polish. A believable technical bullet is better than a flashy one.
 
-Strong bullet example:
-"Optimized crop yield prediction models using XGBoost and LightGBM, improving model selection through cross-validation and feature importance analysis."
-
-Resume JSON:
-{resume_json}
+Examples:
+- Weak: "Worked on backend APIs using Python and PostgreSQL."
+- Better: "Developed backend APIs using Python and PostgreSQL."
+- Weak: "Used cross validation to compare model performance."
+- Better: "Compared model performance using cross-validation."
 
 Job description JSON:
 {jd_json}
+
+Original bullets:
+{bullets_json}

@@ -1,4 +1,4 @@
-TODO: Generate a concise cover letter using the resume JSON and job description JSON.
+Generate a concise cover letter using the resume JSON and job description JSON.
 
 Return only the cover letter text.
 

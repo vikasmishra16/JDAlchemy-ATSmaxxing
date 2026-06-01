@@ -1,4 +1,4 @@
-TODO: Convert the following resume text into structured JSON matching the Resume schema.
+Convert the following resume text into structured JSON matching the Resume schema.
 
 Return only valid JSON. No markdown or explanations.
 Extract only facts explicitly supported by the resume text. Leave unsupported fields empty.

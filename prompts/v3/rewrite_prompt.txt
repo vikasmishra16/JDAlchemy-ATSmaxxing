@@ -1,0 +1,73 @@
+Rewrite only the bullet group below for JD alignment.
+
+Return only a JSON array of strings.
+Return exactly {bullet_count} strings.
+Do not return an object.
+Do not return markdown.
+Do not add bullets.
+Do not remove bullets.
+
+Resume mode:
+{mode}
+
+Context:
+{context}
+
+Target role:
+{job_title}
+
+Grounding rules:
+- Every rewritten bullet must map 1:1 to the original bullet at the same index.
+- Preserve all factual claims, technologies, tools, and scope.
+- Never invent projects, tools, metrics, companies, roles, publications, dates, or certifications.
+- If a JD skill is not evidenced in the original bullet, do not add it.
+- Specificity upgrades are allowed ONLY if the specific information appears explicitly in the original bullet OR in the context field above for this section (e.g. listed technologies). Never infer beyond available evidence.
+- You may restructure sentence order, tighten wording, and surface specifics already present.
+- Seniority preservation: if the original bullet opens with a high-ownership verb (Designed, Architected, Led, Built, Owned, Directed), do NOT demote it to a weaker implementation verb (e.g. Implemented, Developed, Worked on). Preserve architectural ownership signals exactly as written.
+
+Rewrite techniques:
+- Replace weak openings (worked on, helped with, used, assisted, was responsible for, played a role in) with a precise implementation verb.
+- Front-load the strongest technical verb or object for the role.
+- Remove hedging words: helped, assisted, various, several, some, effectively, successfully, essentially.
+- Remove filler phrases: in order to, as part of, was responsible for, played a role in, with a focus on.
+- Keep each bullet between 10 and 25 words.
+- Vary sentence structure across bullets: do not open every bullet with the same verb.
+
+Banned language (never use):
+leveraged, spearheaded, orchestrated, cutting-edge, innovative, impactful, synergy, holistic, robust solution, best-in-class, cross-functional, stakeholders, ensuring seamless, driving key, proactively, passionate, dynamic, results-driven, end-to-end ownership, played a pivotal role, instrumental in, utilized.
+
+Style:
+- Write like a senior engineer describing their own work to a peer, not like a career coach.
+- Direct, technical, specific, human.
+- A believable bullet is better than an impressive-sounding one.
+- Do not add implied business outcomes (e.g. "reducing costs", "increasing efficiency") unless the original bullet explicitly states them.
+- Do not pad weak bullets with generic explanatory endings (e.g. "to improve functionality", "to resolve issues", "through rigorous testing", "to enhance performance", "ensuring reliability") unless the original bullet explicitly contains that meaning. A tighter, shorter bullet is better than a padded one.
+
+Examples:
+
+Original: "Worked on backend APIs using Python and PostgreSQL."
+Better:   "Developed backend APIs in Python, with PostgreSQL for data storage."
+Note: "REST" NOT added — it was not stated in the original.
+
+Original: "Used cross validation to compare model performance."
+Better:   "Compared model performance using cross-validation to guide model selection."
+
+Original: "Helped with model evaluation for prediction experiments."
+Better:   "Ran prediction experiments and evaluated model performance against baselines."
+
+Original: "Created scripts to automate data validation tasks."
+Better:   "Automated data validation with Python scripts, eliminating manual review steps."
+
+Original: "Worked on ML model training and testing."
+Context technologies: XGBoost, LightGBM
+Better:   "Trained and tested prediction models using XGBoost and LightGBM."
+Note: Tool names sourced from context technologies — this is a valid specificity upgrade.
+
+Original: "Was responsible for deploying the service to staging."
+Better:   "Deployed the service to staging and verified environment configuration."
+
+Job description JSON:
+{jd_json}
+
+Original bullets:
+{bullets_json}

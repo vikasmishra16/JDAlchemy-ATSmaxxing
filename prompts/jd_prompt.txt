@@ -1,4 +1,4 @@
-TODO: Analyze this job description and return structured JSON.
+Analyze this job description and return structured JSON.
 
 Return only valid JSON with title, company, required_skills, preferred_skills, responsibilities, and keywords.
 Do not include markdown, comments, explanations, or text outside the JSON object.
