@@ -1,8 +1,0 @@
-TODO: Convert the following resume text into structured JSON matching the Resume schema.
-
-Return only valid JSON. Do not include markdown, comments, explanations, or text outside the JSON object.
-Preserve factual accuracy. Do not invent employers, dates, degrees, skills, projects, publications, metrics, tools, certifications, or links.
-If a detail is unclear or unsupported, omit it or keep the field empty.
-
-Resume text:
-{raw_text}

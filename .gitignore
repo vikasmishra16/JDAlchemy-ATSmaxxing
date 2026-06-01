@@ -181,6 +181,10 @@ Thumbs.db
 test_data/resumes/*.pdf
 test_data/resumes/*.docx
 test_data/jds/*.txt
+data/
+test_output/
+eval_test/outputs/
+manual_test/outputs/
 
 # Evaluation outputs that are generated
 test_data/outputs/
