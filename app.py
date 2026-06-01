@@ -100,9 +100,24 @@ def generate_outputs_ui(
             _debug_json(debug),
         )
     except json.JSONDecodeError as exc:
-        return "", "", resume_json_text, "", "", f"Resume JSON is invalid: {exc}", ""
+        line = getattr(exc, "lineno", None)
+        col = getattr(exc, "colno", None)
+        location = f" (line {line}, column {col})" if line and col else ""
+        return "", "", resume_json_text, "", "", (
+            f"\u26a0\ufe0f The resume JSON has a formatting error{location}. "
+            "Check for missing commas, unclosed brackets, or unmatched quotes, "
+            "then click Parse Resume again."
+        ), ""
     except ValidationError as exc:
-        return "", "", resume_json_text, "", "", f"Resume JSON does not match the schema: {exc}", ""
+        # Extract only field names from Pydantic errors, not the raw dump
+        bad_fields = ", ".join(
+            ".".join(str(loc) for loc in e["loc"])
+            for e in exc.errors()[:5]
+        )
+        return "", "", resume_json_text, "", "", (
+            f"\u26a0\ufe0f The resume JSON is missing or has invalid values in: {bad_fields}. "
+            "Re-parse your resume or correct the highlighted fields."
+        ), ""
     except RuntimeError as exc:
         return "", "", resume_json_text, "", "", f"Output generation failed: {exc}", ""
     except Exception as exc:
@@ -167,8 +182,8 @@ def _debug_json(debug: dict) -> str:
 
 
 def build_app() -> gr.Blocks:
-    with gr.Blocks(title="JD-Align") as demo:
-        gr.Markdown("# JD-Align")
+    with gr.Blocks(title="JDAlchemy") as demo:
+        gr.Markdown("# JDAlchemy")
 
         resume_file = gr.File(
             label="1. Upload Resume (PDF/DOCX)",

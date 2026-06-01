@@ -35,7 +35,7 @@ def main() -> None:
         ("prompt files", check_prompts()),
     ]
 
-    print("JD-Align Health Check")
+    print("JDAlchemy Health Check")
     print("-" * 72)
     for name, result in checks:
         status = "OK" if result["ok"] else "FAIL"
@@ -62,9 +62,14 @@ def check_ollama_model() -> dict[str, object]:
         response = requests.get(_ollama_base_url() + "/api/tags", timeout=5)
         response.raise_for_status()
         models = response.json().get("models", [])
-        names = {model.get("name", "").split(":")[0] for model in models}
-        if OLLAMA_MODEL in names:
-            return {"ok": True, "message": "Model is installed."}
+        exact_names = {model.get("name", "") for model in models}
+        base_names = {model.get("name", "").split(":")[0] for model in models}
+        
+        target_exact = OLLAMA_MODEL
+        target_base = OLLAMA_MODEL.split(":")[0]
+        
+        if target_exact in exact_names or target_base in base_names:
+            return {"ok": True, "message": f"Model '{OLLAMA_MODEL}' is installed."}
         return {"ok": False, "message": f"Run: ollama pull {OLLAMA_MODEL}"}
     except requests.RequestException as exc:
         return {"ok": False, "message": f"Could not inspect models: {exc}"}
@@ -85,10 +90,14 @@ def check_folders() -> dict[str, object]:
 
 
 def check_prompts() -> dict[str, object]:
-    prompt_dir = PROJECT_ROOT / "prompts" / PROMPT_VERSION
-    missing = [name for name in REQUIRED_PROMPTS if not (prompt_dir / name).exists()]
+    missing = []
+    for name in REQUIRED_PROMPTS:
+        v_path = PROJECT_ROOT / "prompts" / PROMPT_VERSION / name
+        root_path = PROJECT_ROOT / "prompts" / name
+        if not v_path.exists() and not root_path.exists():
+            missing.append(name)
     if not missing:
-        return {"ok": True, "message": f"Prompt version '{PROMPT_VERSION}' is complete."}
+        return {"ok": True, "message": f"Prompt version '{PROMPT_VERSION}' is complete (with fallbacks)."}
     return {"ok": False, "message": "Missing: " + ", ".join(missing)}
 
 

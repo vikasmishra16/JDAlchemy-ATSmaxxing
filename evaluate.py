@@ -31,7 +31,7 @@ OUTPUT_DIR = TEST_DATA_DIR / "outputs"
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="JD-Align Evaluation")
+    parser = argparse.ArgumentParser(description="JDAlchemy Evaluation")
     parser.add_argument(
         "--fast", action="store_true", help="Fast mode: skip expensive operations"
     )
@@ -122,7 +122,7 @@ def main() -> None:
                         OUTPUT_DIR
                         / _slug(resume_file.stem)
                         / _slug(jd_file.stem)
-                        / f"{model}_{prompt_version}",
+                        / f"{_slug(model)}_{prompt_version}",
                         resume_file,
                         jd_file,
                         model,
@@ -152,7 +152,7 @@ def main() -> None:
                         OUTPUT_DIR
                         / candidate_name
                         / jd_slug
-                        / f"{model}_{prompt_version}"
+                        / f"{_slug(model)}_{prompt_version}"
                     )
 
                     # Check for incremental evaluation - skip if already done and inputs unchanged
@@ -484,7 +484,7 @@ def _write_parse_failure(
         OUTPUT_DIR
         / _slug(resume_file.stem)
         / "_parse_failure"
-        / f"{model}_{prompt_version}"
+        / f"{_slug(model)}_{prompt_version}"
     )
     case_dir.mkdir(parents=True, exist_ok=True)
     _write_json(
@@ -645,7 +645,7 @@ def _print_summary(rows: list[dict[str, Any]], totals: dict[str, int]) -> None:
     best_model = _best_group(successful, "model")
     best_prompt = _best_group(successful, "prompt_version")
 
-    print("\nJD-Align Empirical Evaluation")
+    print("\nJDAlchemy Empirical Evaluation")
     print("-" * 118)
     print(
         f"{'Candidate':20} {'JD':18} {'Model':10} {'Prompt':8} {'Align':>7} {'Truth':>7} {'Delta':>7} {'Score':>7}"
