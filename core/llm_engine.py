@@ -11,7 +11,7 @@ import config
 from utils.privacy import redact_sensitive_text
 
 
-MAX_RETRIES = 3
+MAX_RETRIES = 2
 DEBUG_OUTPUT_DIR: Path | None = None
 
 
@@ -29,6 +29,8 @@ def call_llm(prompt: str) -> LLMResponse:
         "prompt": prompt,
         "stream": False,
     }
+    if hasattr(config, "OLLAMA_OPTIONS"):
+        payload["options"] = config.OLLAMA_OPTIONS
 
     last_error = ""
     for attempt in range(1, MAX_RETRIES + 1):

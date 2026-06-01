@@ -23,8 +23,34 @@ def read_pdf(file_path: str) -> str:
 
 def read_docx(file_path: str) -> str:
     document = Document(file_path)
-    paragraphs = [paragraph.text for paragraph in document.paragraphs]
-    return "\n".join(paragraphs).strip()
+    parts: list[str] = []
+
+    # Headers and footers from every section
+    for section in document.sections:
+        for hdr_para in section.header.paragraphs:
+            if hdr_para.text.strip():
+                parts.append(hdr_para.text)
+        for ftr_para in section.footer.paragraphs:
+            if ftr_para.text.strip():
+                parts.append(ftr_para.text)
+
+    # Body paragraphs
+    for para in document.paragraphs:
+        if para.text.strip():
+            parts.append(para.text)
+
+    # Table cells (many DOCX resumes use invisible tables for layout)
+    for table in document.tables:
+        for row in table.rows:
+            row_cells: list[str] = []
+            for cell in row.cells:
+                cell_text = cell.text.strip()
+                if cell_text:
+                    row_cells.append(cell_text)
+            if row_cells:
+                parts.append("  ".join(row_cells))
+
+    return "\n".join(parts).strip()
 
 
 def extract_raw_text(file_path: str) -> str:
